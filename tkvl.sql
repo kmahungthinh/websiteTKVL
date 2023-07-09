@@ -156,7 +156,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `image`) VALUES
-(1, 'Linh.jpg');
+(1, 'VHT.jpg');
 
 -- --------------------------------------------------------
 
