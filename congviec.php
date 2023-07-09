@@ -27,7 +27,7 @@
             if (isset($_GET["n_nganhnghe"]) && isset($_GET["s_nganhnghe"])) {
                 $s_nganhnghe = $_GET['s_nganhnghe'];
                 $n_nganhnghe = $_GET['n_nganhnghe'];
-                $query = "SELECT DISTINCT congviec.tencongviec AS cv, congty.tencongty AS cty FROM congty
+                $query = "SELECT congviec.tencongviec AS cv, congty.tencongty AS cty FROM congty
               INNER JOIN congty_nganhnghe ON congty.macongty = congty_nganhnghe.macongty
               INNER JOIN nganhnghe ON congty_nganhnghe.manganhnghe = nganhnghe.manganhnghe
               INNER JOIN congviec ON nganhnghe.manganhnghe = congviec.manganhnghe
