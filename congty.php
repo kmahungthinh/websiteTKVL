@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
-    
+    <head>
     <?php require_once(__DIR__ . '/index.php') ?>
+    </head>
+    <body>
     <div class="col-lg-9">
         <div class="hero__search">
             <div class="hero__search__form">

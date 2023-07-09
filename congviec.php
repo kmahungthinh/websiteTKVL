@@ -13,25 +13,27 @@
                     Tìm kiếm công việc
                     <span class="arrow_carrot-down"></span>
                 </div>
-                <input type="text" name="n_nganhnghe" placeholder="Tìm Tên Công Việc">
+                <input type="text" name="tencongviec" placeholder="Tìm Tên Công Việc">
                 Chọn loại ngành nghề
-                <select name="s_nganhnghe">
+                <select name="nganhnghe">
                     <?php foreach ($nganhnghe as $item) : ?>
                         <option value="<?php echo $item['manganhnghe'] ?>"><?php echo $item['tennganhnghe'] ?></option>
                     <?php endforeach ?>
                 </select>
                 <button type="submit" name="form" value="submit">Tìm kiếm</button>
             </form>
-
+            
             <?php
-            if (isset($_GET["n_nganhnghe"]) && isset($_GET["s_nganhnghe"])) {
-                $s_nganhnghe = $_GET['s_nganhnghe'];
-                $n_nganhnghe = $_GET['n_nganhnghe'];
+            
+            if (isset($_GET["tencongviec"]) && isset($_GET["nganhnghe"])) {
+                echo "Bạn đã thực hiện tìm kiếm với tên công việc là: ".$_GET["tencongviec"];
+                $nganhnghe = $_GET['nganhnghe'];
+                $tencongviec = $_GET['tencongviec'];
                 $query = "SELECT congviec.tencongviec AS cv, congty.tencongty AS cty FROM congty
               INNER JOIN congty_nganhnghe ON congty.macongty = congty_nganhnghe.macongty
               INNER JOIN nganhnghe ON congty_nganhnghe.manganhnghe = nganhnghe.manganhnghe
               INNER JOIN congviec ON nganhnghe.manganhnghe = congviec.manganhnghe
-              WHERE (congviec.tencongviec LIKE '%$n_nganhnghe%' and nganhnghe.manganhnghe = $s_nganhnghe)";
+              WHERE (congviec.tencongviec LIKE '%$tencongviec%' and nganhnghe.manganhnghe = $nganhnghe)";
                 $rs = $db->fetchAll($query);
                 $total_rows = $db->countData($query);
             }
